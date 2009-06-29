@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<mainSheet>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:studentoffice/locallang_db.xml:flexform.mainSheetTitle</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<controller>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection</label>
+							<config>
+								<type>select</type>
+									<items type="array">
+ 										<numIndex index="5" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.simpleListView</numIndex>
+											<numIndex index="1">simpleListView</numIndex>
+										</numIndex>
+								</items>
+ 							</config>
+						</TCEforms>
+					</controller>
+				</el>
+			</ROOT>
+		</mainSheet>
+		<dataSheet>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:studentoffice/locallang_db.xml:flexform.dataSheetTitle</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<studenttype>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.studentTypeSelection</label>
+							<config>
+								<type>select</type>
+									<items type="array">
+ 										<numIndex index="0" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.statustype.I.0</numIndex>
+											<numIndex index="1">0</numIndex>
+										</numIndex>
+										<numIndex index="1" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.statustype.I.1</numIndex>
+											<numIndex index="1">1</numIndex>
+										</numIndex>
+								</items>
+ 							</config>
+						</TCEforms>
+					</studenttype>
+					<status>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.statusSelection</label>
+							<config>
+								<type>select</type>
+									<items type="array">
+ 										<numIndex index="0" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.0</numIndex>
+											<numIndex index="1">0</numIndex>
+										</numIndex>
+										<numIndex index="1" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.1</numIndex>
+											<numIndex index="1">1</numIndex>
+										</numIndex>
+										<numIndex index="2" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.2</numIndex>
+											<numIndex index="1">2</numIndex>
+										</numIndex>
+										<numIndex index="3" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.3</numIndex>
+											<numIndex index="1">3</numIndex>
+										</numIndex>
+										<numIndex index="4" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.4</numIndex>
+											<numIndex index="1">4</numIndex>
+										</numIndex>
+										<numIndex index="5" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:tx_advaddress_status.status.I.5</numIndex>
+											<numIndex index="1">5</numIndex>
+										</numIndex>
+								</items>
+ 							</config>
+						</TCEforms>
+					</status>
+					<datestart>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.dateStartSelection</label>
+							<config>
+								<type>input</type>
+								<size>8</size>
+								<eval>date</eval>
+								<max>20</max>
+								<checkbox>1</checkbox>
+							</config>
+						</TCEforms>							
+					</datestart>
+					<dateend>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.dateEndSelection</label>
+							<config>
+								<type>input</type>
+								<size>8</size>
+								<eval>date</eval>
+								<max>20</max>
+								<checkbox>1</checkbox>
+							</config>
+						</TCEforms>							
+					</dateend>
+					<storageFolder>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.storageFolderSelection</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>1</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</storageFolder>
+				</el>
+			</ROOT>
+		</dataSheet>
+	</sheets>
+</T3DataStructure>

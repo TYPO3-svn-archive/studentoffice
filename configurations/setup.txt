@@ -1,0 +1,21 @@
+## setting the configurations
+plugin.tx_studentoffice.configurations {
+	pathToTemplateDirectory = EXT:studentoffice/templates/
+	studentListTemplate = studentListTpl.php
+}
+
+### List View ###
+plugin.tx_studentoffice.controllers.list = USER_INT
+plugin.tx_studentoffice.controllers.list < plugin.tx_studentoffice.configurations
+plugin.tx_studentoffice.controllers.list.userFunc = tx_studentoffice_controllers_list->main
+plugin.tx_studentoffice.controllers.list.action = showStudentListAction
+
+includeLibs.tx_studentoffice_list = EXT:studentoffice/controllers/class.tx_studentoffice_controllers_list.php
+
+tt_content.list.20.tx_studentoffice_list =< plugin.tx_studentoffice.controllers.list
+
+
+
+
+
+

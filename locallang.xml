@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for 'studentoffice'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_address.tx_studentoffice_paystatus.I.0">open</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tt_address.tx_studentoffice_paystatus.I.0">offen</label>
+		</languageKey>
+	</data>
+</T3locallang>
+
