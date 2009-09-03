@@ -33,7 +33,10 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 
 	var $defaultAction = 'showStudentListAction';
 
+/*
 	function showStudentListAction() {
+		t3lib_div::devLog('showStudentListAction: Start','studentoffice',-1);
+		t3lib_div::devLog('Configurations','studentoffice',0,$this->configurations->getArrayCopy());
 		
 		//----------------------------------------------------------------------
 		// IMPORTANT: Always set the controller ($this) to controlled objects!!!
@@ -45,6 +48,7 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 		$listViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_studentlist');
 		$model = new $modelClassName($this);
 		$model->controller($this);		
+		
 		$dateStart = $this->configurations['datestart'];
 		$dateEnd = $this->configurations['dateend'];
 		$status = $this->configurations['status'];
@@ -60,9 +64,68 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 			//t3lib_div::debug($entry,'exampleAction');
 			$view->append($entry);
 		}	
-		return $view->render($this->configurations['studentListTemplate']);
-
+		t3lib_div::devLog('showStudentListAction: End','studentoffice',-1);
+		return $view->render($this->configurations['studentListTemplate']);		
 	}
+*/
+
+	function showStudentListAction() {	
+		t3lib_div::devLog('showStudentListAction: Start','studentoffice',-1);
+		t3lib_div::devLog('Configurations','studentoffice',0,$this->configurations->getArrayCopy());
+		if($this->parameters['action'] == 'showstudent' ){
+			return $this->showstudentAction();
+		}	
+		$modelClassName = tx_div::makeInstanceClassName('tx_studentoffice_models_students');
+		$entryViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_student');
+		$listViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_studentlist');
+		$translatorClassName = tx_div::makeInstanceClassName('tx_lib_translator');
+		$model = new $modelClassName($this);
+		$model->controller($this);
+		$department = $this->configurations['department'];		
+		$dateStart = $this->configurations['datestart'];
+		$dateEnd = $this->configurations['dateend'];
+		$status = $this->configurations['status'];
+		$statusType = $this->configurations['studenttype'];
+		$storageFolder = $this->configurations['storageFolder'];
+		//st3lib_div::debug($dateStart,'exampleAction');
+		$model->loadStudentList($department, $status,$statusType,$dateStart,$dateEnd,$storageFolder);
+		$view = new $listViewClassName($this);
+		$view->controller($this);
+		for($model->rewind(); $model->valid(); $model->next()) {			
+			$entry = new $entryViewClassName($model->current());
+			$entry->controller($this);
+			//t3lib_div::debug($entry,'exampleAction');
+			$view->append($entry);
+		}	
+		if($this->configurations['controller'] == 'masterListView'){
+			$view->render($this->configurations['masterListTemplate']);
+		}else{
+			$view->render($this->configurations['simpleListTemplate']);
+		}
+		$translator = new $translatorClassName($view);
+		$translator->setPathToLanguageFile($this->configurations['pathToLanguageFile']);
+		t3lib_div::devLog('showStudentListAction: End','studentoffice',-1);
+		return $translator->translateContent();
+	}	
+	
+	function showstudentAction() {		
+		$modelClassName = tx_div::makeInstanceClassName('tx_studentoffice_models_students');
+		$entryViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_student');
+		$translatorClassName = tx_div::makeInstanceClassName('tx_lib_translator');
+		$model = new $modelClassName($this);
+		$model->controller($this);
+		//$storageFolder = $this->configurations['storageFolder'];
+		
+		$model->loadByUid((int) $this->parameters->get('studentid'));
+		//t3lib_div::debug($model->current(),'student');
+		$view = new $entryViewClassName($model->current());					
+		$view->controller($this);
+		$view->setPathToTemplateDirectory($this->configurations['pathToTemplateDirectory']);
+		$view->render($this->configurations['singleViewTemplate']);
+		$translator = new $translatorClassName($view);
+		$translator->setPathToLanguageFile($this->configurations['pathToLanguageFile']);
+		return $translator->translateContent();
+	}	
 
 }
 
