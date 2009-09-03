@@ -32,34 +32,66 @@ class tx_studentoffice_models_students extends tx_lib_object {
 		parent::tx_lib_object();
 	}
 	*/
-	
-	function loadStudentList($status, $statusType, $dateStart, $dateEnd, $storageFolder){
+
+	function loadByUid($id){
+		parent::tx_lib_object();
+		$fields = '*';
+		$tables = 'tx_advaddress_persons';
+		$groupBy = null;
+		$orderBy = null;
+		$limit = null;
+		$where = '(deleted = 0) ';
+		$where .= ' AND (uid = '.$id.')';
+		$query = $GLOBALS['TYPO3_DB']->SELECTquery($fields, $tables, $where, $groupBy, $orderBy, $limit);
+		//t3lib_div::debug($query,'loadByUid');
+		$res = $GLOBALS['TYPO3_DB']->sql_query($query);
+		if($res) {
+			$student = $this->_exportRow($this->_makeRow($res));
+			//t3lib_div::debug($offer,'loadByUid');
+			$this->append($student);
+		}
+	}	
+
+	function loadStudentList($department, $status, $statusType, $dateStart, $dateEnd, $storageFolder){
+		t3lib_div::devLog('loadStudentList: Start','studentoffice',-1,array('department'=>$department,'status'=>$status,'statusType'=>$statusType,'dateStart'=>$dateStart,'dateEnd'=>$dateEnd,'storageFolder'=>$storageFolder));
 		$fields = '*';
 		$tables = 'tx_advaddress_persons, tx_advaddress_status';
 		$groupBy = null;
 		$orderBy = 'lastname ASC';
 		$where = '(tx_advaddress_persons.uid = tx_advaddress_status.parentid)';
-		$where .= ' AND (tx_advaddress_status.status = '.$status.') AND (tx_advaddress_status.statustype = '.$statusType.')';
-		$where .= ' AND (tx_advaddress_status.statusdate > '.$dateStart.') AND (tx_advaddress_status.statusdate < '.$dateEnd.')';
+		$where .= ' AND (tx_advaddress_status.status = '.$status.') AND (tx_advaddress_status.statustype = '.$statusType.') AND (tx_advaddress_status.deleted = 0) AND (tx_advaddress_status.hidden = 0)';
+		//$where .= ' AND (tx_advaddress_status.statusdate > '.$dateStart.') AND (tx_advaddress_status.statusdate < '.$dateEnd.')';
+		if($dateStart > 0){
+			$where .= ' AND (tx_advaddress_status.statusdate > '.$dateStart.')';
+		}
+		if($dateEnd > 0){
+			$where .= ' AND (tx_advaddress_status.statusdate < '.$dateEnd.')';
+		}
 		$where .= ' AND (tx_advaddress_persons.pid = '.$storageFolder.')';
 		if($status == 3){
 			$where .= ' AND (tx_advaddress_persons.hidden = 0)';
 		}		
 		if( ($status != 1) AND ($status != 4) ){
 			$where .= ' AND (tx_advaddress_persons.deleted = 0) ';
-		}		
+		}	
+		if($department != 0){
+			$where .= ' AND (tx_advaddress_persons.department = '.$department.')';
+		}	
 		$limit = null;
 		$query = $GLOBALS['TYPO3_DB']->SELECTquery($fields, $tables, $where, $groupBy, $orderBy, $limit);
 		$res = $GLOBALS['TYPO3_DB']->sql_query($query);
 		if($res){
-			//t3lib_div::debug($entry,'loadAll');
 			$entries = $this->_exportList($this->_makeList($res));
 			for($entries->rewind(); $entries->valid(); $entries->next()){
+				//t3lib_div::debug($entries->current(),'loadAll');
+				t3lib_div::devLog('Students:','studentoffice',-1,$entries->current()->getArrayCopy());
 				$this->append($entries->current());
 			}
 		}
+		t3lib_div::devLog('loadStudentList: End','studentoffice',-1);
 	}	
 	
+
 
 	function _exportRow($row){
 		if(is_object($row)){
