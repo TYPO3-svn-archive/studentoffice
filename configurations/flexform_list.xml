@@ -17,14 +17,44 @@
 							<config>
 								<type>select</type>
 									<items type="array">
- 										<numIndex index="5" type="array">
+ 										<numIndex index="1" type="array">
 											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.simpleListView</numIndex>
 											<numIndex index="1">simpleListView</numIndex>
+										</numIndex>
+										<numIndex index="2" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.masterListView</numIndex>
+											<numIndex index="1">masterListView</numIndex>
+										</numIndex>
+										<numIndex index="3" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.singleView</numIndex>
+											<numIndex index="1">detailView</numIndex>
+										</numIndex>
+										<numIndex index="4" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.masterAlumniListView</numIndex>
+											<numIndex index="1">masterAlumniListView</numIndex>
+										</numIndex>
+										<numIndex index="5" type="array">
+											<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.controllerSelection.phdAlumniListView</numIndex>
+											<numIndex index="1">phdAlumniListView</numIndex>
 										</numIndex>
 								</items>
  							</config>
 						</TCEforms>
 					</controller>
+					<detailPage>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.singleViewPageSelection</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</detailPage>
 				</el>
 			</ROOT>
 		</mainSheet>
@@ -35,6 +65,24 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
+					<department>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.departmentSelection</label>
+							<config>
+								<type>select</type>
+								<items>
+ 									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:studentoffice/locallang_db.xml:flexform.departmentAll</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>
+								<foreign_table>tx_uniseminars_department</foreign_table>
+								<size>1</size>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+ 							</config>
+						</TCEforms>
+					</department>
 					<studenttype>
 						<TCEforms>
 							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.studentTypeSelection</label>
@@ -125,6 +173,17 @@
 							</config>
 						</TCEforms>
 					</storageFolder>
+					<imageFolder>
+						<TCEforms>
+							<label>LLL:EXT:studentoffice/locallang_db.xml:flexform.imageFolderSelection</label>
+							<config>
+								<type>input</type>
+								<size>35</size>
+								<max>100</max>						
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</imageFolder>
 				</el>
 			</ROOT>
 		</dataSheet>

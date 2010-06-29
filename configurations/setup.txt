@@ -1,7 +1,12 @@
 ## setting the configurations
 plugin.tx_studentoffice.configurations {
 	pathToTemplateDirectory = EXT:studentoffice/templates/
-	studentListTemplate = studentListTpl.php
+	pathToLanguageFile = EXT:studentoffice/locallang.xml
+	simpleListTemplate = simpleListTpl.php
+	masterListTemplate = masterListTpl.php
+	singleViewTemplate = singleViewTpl.php
+	masterAlumniListTemplate = masterAlumniListTpl.php
+	phdAlumniListTemplate = phdAlumniListTpl.php
 }
 
 ### List View ###

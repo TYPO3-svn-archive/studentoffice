@@ -33,42 +33,10 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 
 	var $defaultAction = 'showStudentListAction';
 
-/*
-	function showStudentListAction() {
-		t3lib_div::devLog('showStudentListAction: Start','studentoffice',-1);
-		t3lib_div::devLog('Configurations','studentoffice',0,$this->configurations->getArrayCopy());
-		
-		//----------------------------------------------------------------------
-		// IMPORTANT: Always set the controller ($this) to controlled objects!!!
-		//            Please have a look at the constructor of tx_lib_object.
-		//----------------------------------------------------------------------
-		
-		$modelClassName = tx_div::makeInstanceClassName('tx_studentoffice_models_students');
-		$entryViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_student');
-		$listViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_studentlist');
-		$model = new $modelClassName($this);
-		$model->controller($this);		
-		
-		$dateStart = $this->configurations['datestart'];
-		$dateEnd = $this->configurations['dateend'];
-		$status = $this->configurations['status'];
-		$statusType = $this->configurations['studenttype'];
-		$storageFolder = $this->configurations['storageFolder'];
-		//st3lib_div::debug($dateStart,'exampleAction');
-		$model->loadStudentList($status,$statusType,$dateStart,$dateEnd,$storageFolder);
-		$view = new $listViewClassName($this);
-		$view->controller($this);
-		for($model->rewind(); $model->valid(); $model->next()) {			
-			$entry = new $entryViewClassName($model->current());
-			$entry->controller($this);
-			//t3lib_div::debug($entry,'exampleAction');
-			$view->append($entry);
-		}	
-		t3lib_div::devLog('showStudentListAction: End','studentoffice',-1);
-		return $view->render($this->configurations['studentListTemplate']);		
-	}
-*/
 
+	/*
+	 * List-View
+	 */
 	function showStudentListAction() {	
 		t3lib_div::devLog('showStudentListAction: Start','studentoffice',-1);
 		t3lib_div::devLog('Configurations','studentoffice',0,$this->configurations->getArrayCopy());
@@ -99,6 +67,10 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 		}	
 		if($this->configurations['controller'] == 'masterListView'){
 			$view->render($this->configurations['masterListTemplate']);
+		}elseif($this->configurations['controller'] == 'masterAlumniListView'){
+			$view->render($this->configurations['masterAlumniListTemplate']);
+		}elseif($this->configurations['controller'] == 'phdAlumniListView'){
+			$view->render($this->configurations['phdAlumniListTemplate']);
 		}else{
 			$view->render($this->configurations['simpleListTemplate']);
 		}
@@ -108,6 +80,9 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 		return $translator->translateContent();
 	}	
 	
+	/*
+	 * Single-View
+	 */
 	function showstudentAction() {		
 		$modelClassName = tx_div::makeInstanceClassName('tx_studentoffice_models_students');
 		$entryViewClassName = tx_div::makeInstanceClassName('tx_studentoffice_views_student');

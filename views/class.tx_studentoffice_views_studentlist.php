@@ -8,6 +8,9 @@
  * For a bigger practical example see the extension Elmar's FAQ (efaq).
  */
 class tx_studentoffice_views_studentlist extends tx_lib_phpTemplateEngine {
+	
+	
+	
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/studentoffice/views/class.tx_studentoffice_views_studentlist.php']) {
