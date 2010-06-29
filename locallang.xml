@@ -6,10 +6,28 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tt_address.tx_studentoffice_paystatus.I.0">open</label>
+			<label index="name">Name</label>
+			<label index="citizenship">Citizenship</label>
+			<label index="thesisSubject">Thesis subject</label>
+			<label index="msubject">Master-Thesis subject</label>
+			<label index="affiliation">Affiliation</label>
+			<label index="supervisor">Thesis supervisor</label>
+			<label index="thesisCommittee">Thesis committee</label>
+			<label index="dissertation">Dissertation</label>
+			<label index="publications">Publications</label>
+			<label index="mthesis">Master-Thesis</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tt_address.tx_studentoffice_paystatus.I.0">offen</label>
+			<label index="name">Name</label>
+			<label index="citizenship">Nationalität</label>
+			<label index="thesisSubject">Thema der Doktorarbeit</label>
+			<label index="msubject">Thema der Masterarbeit</label>
+			<label index="affiliation">Affiliation</label>
+			<label index="supervisor">Thesis supervisor</label>
+			<label index="thesisCommittee">Thesis committee</label>
+			<label index="dissertation">Dissertation</label>
+			<label index="publications">Publikationen</label>
+			<label index="mthesis">Master-Arbeit</label>
 		</languageKey>
 	</data>
 </T3locallang>

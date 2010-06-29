@@ -9,14 +9,21 @@
 			<label index="listPluginLabel">Student-List</label>
 			<label index="flexform.mainSheetTitle">Common settings</label>
 			<label index="flexform.controllerSelection">Sub plugin</label>
-			<label index="flexform.controllerSelection.simpleListView">Simple ListView</label>
+			<label index="flexform.controllerSelection.simpleListView">Simple List</label>
+			<label index="flexform.controllerSelection.masterListView">Master List</label>
+			<label index="flexform.controllerSelection.singleView">Detail-View</label>
+			<label index="flexform.controllerSelection.masterAlumniListView">Master-Alumni List</label>
+			<label index="flexform.controllerSelection.phdAlumniListView">phd-Alumni List</label>
 			<label index="flexform.singleViewPageSelection">Page to display the Single-View</label>
 			<label index="flexform.dataSheetTitle">Data</label>
+			<label index="flexform.departmentSelection">Department</label>
+			<label index="flexform.departmentAll">All</label>
 			<label index="flexform.studentTypeSelection">Student-Type</label>
 			<label index="flexform.statusSelection">Status</label>
 			<label index="flexform.dateStartSelection">Datum von</label>
 			<label index="flexform.dateEndSelection">Datum bis</label>
-			<label index="flexform.storageFolderSelection">Address storage folder</label>			
+			<label index="flexform.storageFolderSelection">Address storage folder</label>	
+			<label index="flexform.imageFolderSelection">Image storage folder</label>		
 			<label index="tx_advaddress_persons.matrikelnr">Registration-No.</label>
 			<label index="tx_advaddress_persons.nationality">Nationality</label>
 			<label index="tx_advaddress_persons.region">Region</label>
@@ -35,6 +42,7 @@
 			<label index="tx_advaddress_persons.studytyp.I.0">Master</label>
 			<label index="tx_advaddress_persons.studytyp.I.1">PhD</label>
 			<label index="tx_advaddress_persons.studytyp">Study-Typ</label>
+			<label index="tx_advaddress_persons.department">Department</label>
 			<label index="tx_advaddress_persons.documents">Documents received</label>
 			<label index="tx_advaddress_persons.graddate">Date of Graduation</label>
 			<label index="tx_advaddress_persons.maffiliation">Master-Affiliation</label>
@@ -67,17 +75,22 @@
 			<label index="tt_content.list_type_pi1">Studenten-Liste</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="listPluginLabel">Studenten-Liste44</label>
+			<label index="listPluginLabel">Studenten-Liste</label>
 			<label index="flexform.mainSheetTitle">Einstellungen</label>
 			<label index="flexform.controllerSelection">Modul</label>
 			<label index="flexform.controllerSelection.simpleListView">Einfache Listen-Ansicht</label>
+			<label index="flexform.controllerSelection.masterListView">Master Listen-Ansicht</label>
+			<label index="flexform.controllerSelection.singleView">Einzel-Ansicht</label>
 			<label index="flexform.singleViewPageSelection">Seite für die Einzel-Ansicht</label>
 			<label index="flexform.dataSheetTitle">Daten</label>
+			<label index="flexform.departmentSelection">Institut</label>
+			<label index="flexform.departmentAll">Alle</label>
 			<label index="flexform.studentTypeSelection">Studenten-Typ</label>
 			<label index="flexform.statusSelection">Status</label>
 			<label index="flexform.dateStartSelection">Datum von</label>
 			<label index="flexform.dateEndSelection">Datum bis</label>
-			<label index="flexform.storageFolderSelection">Adress-Ordner</label>			
+			<label index="flexform.storageFolderSelection">Adress-Ordner</label>	
+			<label index="flexform.imageFolderSelection">Bilder-Ordner</label>		
 			<label index="tx_advaddress_persons.matrikelnr">Matrikel-Nr.</label>
 			<label index="tx_advaddress_persons.nationality">Nationalität</label>
 			<label index="tx_advaddress_persons.region">Region</label>
@@ -96,6 +109,7 @@
 			<label index="tx_advaddress_persons.studytyp.I.0">Master</label>
 			<label index="tx_advaddress_persons.studytyp.I.1">PhD</label>
 			<label index="tx_advaddress_persons.studytyp">Angestrebter Abschluss</label>
+			<label index="tx_advaddress_persons.department">Institut</label>
 			<label index="tx_advaddress_persons.documents">Unterlagen erhalten</label>
 			<label index="tx_advaddress_persons.graddate">Datum des Abschuss</label>
 			<label index="tx_advaddress_persons.maffiliation">Master-Affiliation</label>
