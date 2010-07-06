@@ -96,7 +96,13 @@ class tx_studentoffice_controllers_list extends tx_lib_controller{
 		$view = new $entryViewClassName($model->current());					
 		$view->controller($this);
 		$view->setPathToTemplateDirectory($this->configurations['pathToTemplateDirectory']);
-		$view->render($this->configurations['singleViewTemplate']);
+		if($this->parameters->get('template') == 'phdAlumni'){
+			$view->render($this->configurations['phdAlumniSingleTemplate']);
+		}elseif($this->parameters->get('template')  == 'masterAlumni'){
+			$view->render($this->configurations['masterAlumniSingleTemplate']);
+		}else{
+			$view->render($this->configurations['singleViewTemplate']);
+		}
 		$translator = new $translatorClassName($view);
 		$translator->setPathToLanguageFile($this->configurations['pathToLanguageFile']);
 		return $translator->translateContent();
