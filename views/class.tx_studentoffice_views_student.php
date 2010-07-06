@@ -39,7 +39,7 @@ class tx_studentoffice_views_student extends tx_lib_phpTemplateEngine {
 	 * Print the Student-Name
 	 * with Link to Detail-Page 
 	 */
-	function printLinkedName(){
+	function printLinkedName($template=NULL){
 		$_name = $this->get('lastname').', '.$this->get('firstname');
 		$link = tx_div::makeInstance('tx_lib_link');
 		$link->label($_name);
@@ -47,7 +47,11 @@ class tx_studentoffice_views_student extends tx_lib_phpTemplateEngine {
 		//$link->destination($this);
 		$link->designator($this->getDesignator());
 		$link->noHash();
-		$link->parameters(array('action' => 'showstudent', 'studentid' => $this->get('parentid')));
+		if($template != NULL) {
+			$link->parameters(array('action' => 'showstudent', 'studentid' => $this->get('parentid'), 'template' => $template));
+		}else {
+			$link->parameters(array('action' => 'showstudent', 'studentid' => $this->get('parentid')));
+		}
 		print $link->makeTag();
 	}	
 	

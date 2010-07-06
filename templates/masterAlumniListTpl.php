@@ -27,54 +27,10 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="studentList">
 	<?php for($this->rewind(); $this->valid(); $this->next()): $student = $this->current();	?>
 		<tr>
-			<td rowspan="6" class="student_links" valign="top">
-				<?php $student->printStudentImg(); ?>
-			</td>
-			<td class="student_rechts" valign="top">
-				%%%name%%%:
-			</td>
 			<td class="student_rechts" valign="top">
 				<?php //t3lib_div::debug($entry,'exampleAction'); ?>
-				<strong><?php $student->printLinkedName(); ?></strong>
+				<strong><?php $student->printLinkedName('masterAlumni'); ?></strong>
 			</td>
-		</tr><tr>
-			<td class="student_rechts" valign="top">
-				%%%citizenship%%%:
-			</td>
-			<td class="student_rechts" valign="top">
-				<?php $student->printAsText('nationality'); ?>
-			</td>
-		</tr><tr>
-			<td class="student_rechts" valign="top">
-				%%%affiliation%%%:
-			</td>
-			<td class="student_rechts" valign="top">
-				<?php $student->printAsText('maffiliation'); ?>
-			</td>
-		</tr><tr>
-			<td class="student_rechts" valign="top">
-				%%%supervisor%%%:
-			</td>
-			<td class="student_rechts" valign="top">
-				<?php $student->printAsText('msupervisor'); ?>
-			</td>
-		</tr><tr>
-			<td class="student_rechts" valign="top">
-				%%%msubject%%%:
-			</td>
-			<td class="student_rechts" valign="top">
-				<?php $student->printAsText('msubject'); ?> 
-			</td>
-		</tr><tr>
-
-			<?php if($student->has('mthesis')): ?>
-				<td class="student_rechts" valign="top">
-					%%%mthesis%%%:
-				</td>
-				<td class="student_rechts" valign="top">
-					<?php $student->printAsText('mthesis'); ?> 
-				</td>
-			<?php endif; ?>
 		</tr>
 
 	<?php endfor; ?>
